@@ -22,10 +22,18 @@ public class applyGlassesBlur : MonoBehaviour {
             optimizedBlur.blurIterations = 3;
             optimizedBlur.downsample = 1;
         }
+        if (highestGlassesAchieved > 1)
+        {
+            optimizedBlur.blurIterations = 2;
+        }
         if (highestGlassesAchieved > 2)
         {
             optimizedBlur.blurIterations = 2;
             optimizedBlur.downsample = 0;
+        }
+        if (highestGlassesAchieved > 3)
+        {
+            optimizedBlur.blurIterations = 1;
         }
         if (highestGlassesAchieved == 5)
         {
