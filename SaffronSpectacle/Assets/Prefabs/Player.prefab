@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11456898}
   - 114: {fileID: 11471474}
   - 114: {fileID: 11420812}
+  - 114: {fileID: 11444134}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -187,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downsample: 1
-  blurSize: 3
-  blurIterations: 2
+  downsample: 2
+  blurSize: 10
+  blurIterations: 4
   blurType: 0
   blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
 --- !u!114 &11439070
@@ -203,7 +204,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c1cc61e6662c44d8439aed19a2ed9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfGlassPieces: 0000000000000000000000000000000000000000
+  numberOfGlassPieces: 000000000000000000000000000000000000000000000000
+  numberOfGlassPiecesReq: 020000000200000002000000020000000200000002000000
+  glassesAchieved: 010000000000
+  highestGlassesAchieved: 0
+--- !u!114 &11444134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dee64bb402ca374992e1e64967630c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11456898
 MonoBehaviour:
   m_ObjectHideFlags: 1
