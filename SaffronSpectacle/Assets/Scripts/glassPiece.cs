@@ -3,6 +3,7 @@ using System.Collections;
 
 public class glassPiece : MonoBehaviour {
 
+    public int pieceForGlasses = 0;
     // Use this for initialization
     void Start()
     {
@@ -17,7 +18,7 @@ public class glassPiece : MonoBehaviour {
 
     public void interact()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<playerAttributes>().numberOfGlassPieces++;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<playerAttributes>().numberOfGlassPieces[pieceForGlasses]++;
         GameObject.Destroy(this.gameObject, .05f);
 
 

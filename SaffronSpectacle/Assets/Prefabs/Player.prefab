@@ -12,6 +12,7 @@ GameObject:
   - 81: {fileID: 8151694}
   - 114: {fileID: 11456898}
   - 114: {fileID: 11471474}
+  - 114: {fileID: 11420812}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -30,6 +31,7 @@ GameObject:
   - 54: {fileID: 5480960}
   - 136: {fileID: 13676352}
   - 114: {fileID: 11418088}
+  - 114: {fileID: 11439070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,11 +171,39 @@ MonoBehaviour:
     smoothTime: 18
     lockCursor: 1
   advancedSettings:
-    groundCheckDistance: 0.1
+    groundCheckDistance: 0.2
     stickToGroundHelperDistance: 0.6
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+--- !u!114 &11420812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downsample: 1
+  blurSize: 3
+  blurIterations: 2
+  blurType: 0
+  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
+--- !u!114 &11439070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c1cc61e6662c44d8439aed19a2ed9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfGlassPieces: 0000000000000000000000000000000000000000
 --- !u!114 &11456898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,8 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 2036820}
   motionBob:
-    HorizontalBobRange: 0.1
-    VerticalBobRange: 0.05
+    HorizontalBobRange: 0
+    VerticalBobRange: 0
     Bobcurve:
       serializedVersion: 2
       m_Curve:
@@ -222,8 +252,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     VerticaltoHorizontalRatio: 2
   jumpAndLandingBob:
-    BobDuration: 0.15
-    BobAmount: 0.2
+    BobDuration: 0
+    BobAmount: 0
   rigidbodyFirstPersonController: {fileID: 11418088}
   StrideInterval: 4
   RunningStrideLengthen: 0.722
