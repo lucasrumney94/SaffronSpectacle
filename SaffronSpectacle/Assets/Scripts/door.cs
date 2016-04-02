@@ -3,8 +3,10 @@ using System.Collections;
 
 public class door : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+
+    public Vector3 hinge = new Vector3(0.0f,1.0f,0.0f);
+    // Use this for initialization
+    void Start ()
     {
 	    
 	}
@@ -17,6 +19,11 @@ public class door : MonoBehaviour {
 
     void interact()
     {
-        this.transform.Translate(Vector3.up);
+        InvokeRepeating("doorOpen",.01f,.1f);
+    }
+
+    void doorOpen()
+    {
+        this.transform.RotateAround(hinge, 1.0f);
     }
 }
