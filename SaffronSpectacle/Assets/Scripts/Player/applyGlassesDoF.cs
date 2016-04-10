@@ -21,17 +21,18 @@ public class applyGlassesDoF : MonoBehaviour
             //.blurSize = 10 - (2 * (highestGlassesAchieved));
         if (highestGlassesAchieved > 0)
         {
-            DoF.focalSize = 1.0f;
+            DoF.focalSize = 0.4f;
+            DoF.aperture = 0.5f;
         }
         if (highestGlassesAchieved > 1)
         {
             DoF.focalSize = 0.5f;
-            DoF.aperture = 0.8f;
+            DoF.aperture = 0.5f;
         }
         if (highestGlassesAchieved > 2)
         {
             DoF.focalSize = 0.5f;
-            DoF.aperture = 0.6f;
+            DoF.aperture = 0.5f;
         }
         if (highestGlassesAchieved > 3)
         {
