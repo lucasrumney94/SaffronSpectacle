@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &144490
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 470376}
+  m_Layer: 0
+  m_Name: BlurFocusPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &175092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,8 +27,8 @@ GameObject:
   - 81: {fileID: 8151694}
   - 114: {fileID: 11456898}
   - 114: {fileID: 11471474}
-  - 114: {fileID: 11420812}
-  - 114: {fileID: 11444134}
+  - 114: {fileID: 11423850}
+  - 114: {fileID: 11469114}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -33,6 +48,7 @@ GameObject:
   - 136: {fileID: 13676352}
   - 114: {fileID: 11418088}
   - 114: {fileID: 11439070}
+  - 20: {fileID: 2083362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -53,6 +69,18 @@ Transform:
   - {fileID: 478184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &470376
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 478184}
+  m_RootOrder: 0
 --- !u!4 &478184
 Transform:
   m_ObjectHideFlags: 1
@@ -62,7 +90,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 470376}
   m_Father: {fileID: 443964}
   m_RootOrder: 0
 --- !u!20 &2036820
@@ -72,6 +101,40 @@ Camera:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175092}
   m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!20 &2083362
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193000}
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
@@ -177,7 +240,7 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
---- !u!114 &11420812
+--- !u!114 &11423850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -185,14 +248,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 175092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
+  m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downsample: 2
-  blurSize: 10
-  blurIterations: 4
+  visualizeFocus: 0
+  focalLength: 10
+  focalSize: 0.1
+  aperture: 1
+  focalTransform: {fileID: 470376}
+  maxBlurSize: 2
+  highResolution: 1
   blurType: 0
-  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
+  blurSampleCount: 2
+  nearBlur: 0
+  foregroundOverlap: 1
+  dofHdrShader: {fileID: 4800000, guid: acd613035ff3e455e8abf23fdc8c8c24, type: 3}
+  dx11BokehShader: {fileID: 4800000, guid: d8e82664aa8686642a424c88ab10164a, type: 3}
+  dx11BokehThreshold: 0.5
+  dx11SpawnHeuristic: 0.0875
+  dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
+  dx11BokehScale: 1.2
+  dx11BokehIntensity: 2.5
 --- !u!114 &11439070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,17 +284,6 @@ MonoBehaviour:
   numberOfGlassPiecesReq: 020000000200000002000000020000000200000002000000
   glassesAchieved: 010000000000
   highestGlassesAchieved: 0
---- !u!114 &11444134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 175092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dee64bb402ca374992e1e64967630c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11456898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +337,17 @@ MonoBehaviour:
   rigidbodyFirstPersonController: {fileID: 11418088}
   StrideInterval: 4
   RunningStrideLengthen: 0.722
+--- !u!114 &11469114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e84ef4e6325c346a45618f684d0319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11471474
 MonoBehaviour:
   m_ObjectHideFlags: 1
